@@ -17,6 +17,7 @@ class Database
     {
         return $this->conn;
     }
+
     public function makeUsersTable()
     {
         $sql = "CREATE TABLE User (
@@ -30,6 +31,7 @@ class Database
                 );";
         $result = mysqli_query($this->conn, $sql);
     }
+
     public function makeOrdersTable()
     {
         $sql = "CREATE TABLE orders (
@@ -44,6 +46,7 @@ class Database
                 );";
         $result = mysqli_query($this->conn, $sql);
     }
+    
     public function makeProductsTable()
     {
         $sql = "CREATE TABLE products (
@@ -59,33 +62,3 @@ class Database
 
 $databaseConnection = new Database();
 $conn = $databaseConnection->getConnection();
-
-class User
-{
-
-    private $conn;
-
-    // private function query(){
-    //     return $this->mysqli_query($this->conn, $sql);
-    // }
-    public function __construct($conn)
-    {
-        $this->conn = $conn;
-    }
-
-    public function getSingle($id)
-    {
-        $sql = "SELECT * FROM USER where id = $id";
-        $result = mysqli_query($this->conn, $sql);
-        return mysqli_fetch_assoc($result);
-    }
-    public function getAll()
-    {
-        $sql = "SELECT * FROM USER";
-        $result = mysqli_query($this->conn, $sql);
-        return mysqli_fetch_assoc($result);
-    }
-}
-
-$user = new User($conn);
-$user->getSingle(1);
