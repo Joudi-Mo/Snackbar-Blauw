@@ -28,3 +28,9 @@ CREATE TABLE products (
     selling_price decimal(8,2),
     category ENUM('drinks','food')	
 );
+
+
+INSERT INTO `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
+VALUES      ("Peter","Van Dijk","987654321","peter@test.com","123","Klant"),
+            ("Jan","Van de Beek","123456789","jan@test.com","123","Medewerker"),
+            ("Mark","Goot","0101010101","Mark@test.com","123","Manager")

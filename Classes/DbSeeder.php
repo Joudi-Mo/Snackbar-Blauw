@@ -13,21 +13,29 @@ class DbSeeder
         $this->conn = $conn;
     }
 
-    public function fillUsers(int $number_of_records)
+    public function fillUsers(int $number_of_records, $phoneNumber, $password)
     {
 
         $statement = "INSERT INTO 
-                            -- `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
+                            `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
                             -- `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`)
-                            `user`(`firstname`, `lastname`, `phonenumber`, `email`)
-                            -- `user`(`firstname`, `lastname`, `email`, `role`)
+                            -- `user`(`firstname`, `lastname`, `phonenumber`, `email`)
+
                       VALUES ";
 
         for ($i = 0; $i < $number_of_records; $i++) {
             if ($i == $number_of_records - 1) {
 
                 // $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->safeEmail()}')";
-                $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->phoneNumber()}', '{$this->faker->safeEmail()}', '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}')";
+                $statement .= 
+                "(
+                        '{$this->faker->firstName()}',
+                        '{$this->faker->lastName()}',
+                        '$phoneNumber',
+                        '{$this->faker->safeEmail()}',
+                        '$password',
+                        '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
+                )";
                 // $statement .= '("Peter","Van Dijk","987654321","peter@test.com","123")';
                 // $statement .= "(
                 //     '{$this->faker->firstName()}',
@@ -37,22 +45,20 @@ class DbSeeder
                 //     '{$this->faker->password()}'
                 //     )"; 
 
-                //Random number between 10000 and 50000
-                // echo '<br>Range 10000 to 50000 --->'. rand(10000, 50000);
-
-
             } else {
 
                 // $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->safeEmail()}'),";
-                $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->phoneNumber()}', '{$this->faker->safeEmail()}', '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'),";
+                // $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->phoneNumber()}', '{$this->faker->safeEmail()}', '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'),";
                 // $statement .= '("Peter","Van Dijk","987654321","peter@test.com","123"),';
-                // $statement .= "(
-                //     '{$this->faker->firstName()}',
-                //     '{$this->faker->lastName()}',
-                //     '{$this->faker->phoneNumber()}',
-                //     '{$this->faker->safeEmail()}',
-                //     '{$this->faker->password()}'
-                // ),"; 
+                $statement .= 
+                "(
+                    '{$this->faker->firstName()}',
+                    '{$this->faker->lastName()}',
+                    '$phoneNumber',
+                    '{$this->faker->safeEmail()}',
+                    '$password',
+                    '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
+                ),"; 
             }
         } //End for loop
 
@@ -63,17 +69,7 @@ class DbSeeder
         //     '{$this->faker->safeEmail()}',
         //     '{$this->faker->password()}',
         //     '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])};
-
-        //     // 'c''
         // ),"; 
-
-
-        // $sql ='INSERT INTO 
-        //         `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
-        //     VALUES 
-        //         ("Peter","Van Dijk","987654321","peter@test.com","123","Klant"),
-        //         ("Jan","Van de Beek","123456789","jan@test.com","123","Medewerker"),
-        //         ("Mark","Goot","0101010101","Mark@test.com","123","Manager")';
 
         mysqli_query($this->conn, $statement);
         print_r(mysqli_info($this->conn));
@@ -87,12 +83,18 @@ class DbSeeder
         }
         return $sequence;
     }
+    //Een random password genereren
+    public function randomPassword($length){
+        $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#&";
+        return substr(str_shuffle($characters), 0, $length);
+    }
     
     
 }
 
 $seeder = new DbSeeder($conn);
-// $seeder->fillUsers(3);
-echo $seeder->randomPhoneNumber();
+// echo $seeder->randomPassword(8);
+$seeder->fillUsers(1,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
+// echo $seeder->randomPhoneNumber();
 // echo '<button onclick ="$seeder->fillUsers(10);">FillUsers</button>';
 ?>

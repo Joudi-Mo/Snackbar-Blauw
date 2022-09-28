@@ -27,4 +27,4 @@ class User
 }
 
 $user = new User($conn);
-$user->getSingle(1);
+// $user->getSingle(1);
