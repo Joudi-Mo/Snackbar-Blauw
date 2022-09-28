@@ -18,7 +18,7 @@ class Database
         return $this->conn;
     }
 
-    public function makeUsersTable()
+    public function makeUsersTable(): void
     {
         $sql = "CREATE TABLE User (
                     user_id int PRIMARY KEY AUTO_INCREMENT,
@@ -29,7 +29,7 @@ class Database
                     password varchar(60),
                     role ENUM ('Manager','Medewerker','Klant')
                 );";
-        $result = mysqli_query($this->conn, $sql);
+        mysqli_query($this->conn, $sql);
     }
 
     public function makeOrdersTable()

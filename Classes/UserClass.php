@@ -5,9 +5,10 @@ class User
 
     private $conn;
 
-    // private function query(){
-    //     return $this->mysqli_query($this->conn, $sql);
-    // }
+    private function query($sql){
+        return mysqli_query($this->conn, $sql);
+    }
+    
     public function __construct($conn)
     {
         $this->conn = $conn;
@@ -16,14 +17,12 @@ class User
     public function getSingle($id)
     {
         $sql = "SELECT * FROM USER where id = $id";
-        $result = mysqli_query($this->conn, $sql);
-        return mysqli_fetch_assoc($result);
+        return mysqli_fetch_assoc($this->query($sql));
     }
     public function getAll()
     {
         $sql = "SELECT * FROM USER";
-        $result = mysqli_query($this->conn, $sql);
-        return mysqli_fetch_assoc($result);
+        return mysqli_fetch_assoc($this->query($sql));
     }
 }
 
