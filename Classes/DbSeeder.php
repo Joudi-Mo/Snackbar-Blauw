@@ -13,20 +13,18 @@ class DbSeeder
         $this->conn = $conn;
     }
 
+    //Functie om de 'user' table in te vullen met nep data
     public function fillUsers(int $number_of_records, $phoneNumber, $password)
     {
 
         $statement = "INSERT INTO 
                             `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
-                            -- `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`)
-                            -- `user`(`firstname`, `lastname`, `phonenumber`, `email`)
 
                       VALUES ";
 
         for ($i = 0; $i < $number_of_records; $i++) {
             if ($i == $number_of_records - 1) {
 
-                // $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->safeEmail()}')";
                 $statement .= 
                 "(
                         '{$this->faker->firstName()}',
@@ -36,20 +34,9 @@ class DbSeeder
                         '$password',
                         '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
                 )";
-                // $statement .= '("Peter","Van Dijk","987654321","peter@test.com","123")';
-                // $statement .= "(
-                //     '{$this->faker->firstName()}',
-                //     '{$this->faker->lastName()}',
-                //     '{$this->faker->phoneNumber()}',
-                //     '{$this->faker->safeEmail()}',
-                //     '{$this->faker->password()}'
-                //     )"; 
 
             } else {
 
-                // $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->safeEmail()}'),";
-                // $statement .= "('{$this->faker->firstName()}', '{$this->faker->lastName()}', '{$this->faker->phoneNumber()}', '{$this->faker->safeEmail()}', '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'),";
-                // $statement .= '("Peter","Van Dijk","987654321","peter@test.com","123"),';
                 $statement .= 
                 "(
                     '{$this->faker->firstName()}',
@@ -61,15 +48,6 @@ class DbSeeder
                 ),"; 
             }
         } //End for loop
-
-        // $statement .= "(
-        //     '{$this->faker->firstName()}',
-        //     '{$this->faker->lastName()}',
-        //     '{$this->faker->phoneNumber()}',
-        //     '{$this->faker->safeEmail()}',
-        //     '{$this->faker->password()}',
-        //     '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])};
-        // ),"; 
 
         mysqli_query($this->conn, $statement);
         print_r(mysqli_info($this->conn));
@@ -93,8 +71,7 @@ class DbSeeder
 }
 
 $seeder = new DbSeeder($conn);
-// echo $seeder->randomPassword(8);
+echo $seeder->randomPassword(8);
+echo'<br>';
 $seeder->fillUsers(1,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
-// echo $seeder->randomPhoneNumber();
-// echo '<button onclick ="$seeder->fillUsers(10);">FillUsers</button>';
-?>
+echo $seeder->randomPhoneNumber();
