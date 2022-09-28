@@ -1,0 +1,30 @@
+Eerst maak een database aan en daarna de volgende:
+
+CREATE TABLE User (
+    user_id int PRIMARY KEY AUTO_INCREMENT,
+    firstName varchar(100),
+    lastName varchar(100),
+    phonenumber int(10),
+    email varchar(100),
+    password varchar(60),
+    role ENUM ('Manager','Medewerker','Klant')
+);
+
+CREATE TABLE orders (
+    order_id int PRIMARY KEY AUTO_INCREMENT,
+    user_id int(11),
+    product_id int(11),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    quantity int(11),
+    status ENUM ('Besteld','Verwerken','Bezorgd'),
+    due_datetime datetime   
+);
+
+CREATE TABLE products (
+    product_id int PRIMARY KEY AUTO_INCREMENT,
+	name varchar(100),
+    cost_price decimal(8,2),
+    selling_price decimal(8,2),
+    category ENUM('drinks','food')	
+);
