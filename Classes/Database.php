@@ -32,7 +32,7 @@ class Database
         mysqli_query($this->conn, $sql);
     }
 
-    public function makeOrdersTable()
+    public function makeOrdersTable(): void
     {
         $sql = "CREATE TABLE orders (
                     order_id int PRIMARY KEY AUTO_INCREMENT,
@@ -47,7 +47,7 @@ class Database
         $result = mysqli_query($this->conn, $sql);
     }
     
-    public function makeProductsTable()
+    public function makeProductsTable(): void
     {
         $sql = "CREATE TABLE products (
                     product_id int PRIMARY KEY AUTO_INCREMENT,

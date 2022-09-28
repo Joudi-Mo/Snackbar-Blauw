@@ -73,5 +73,5 @@ class DbSeeder
 $seeder = new DbSeeder($conn);
 echo $seeder->randomPassword(8);
 echo'<br>';
-$seeder->fillUsers(1,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
+// $seeder->fillUsers(1,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
 echo $seeder->randomPhoneNumber();
