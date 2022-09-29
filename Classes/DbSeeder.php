@@ -67,6 +67,28 @@ class DbSeeder
         return substr(str_shuffle($characters), 0, $length);
     }
     
+
+    //Functie om de 'Products' table in te vullen met data
+    public function fillProducts()
+    {
+        $sql ='INSERT INTO 
+                `products`(`name`, `cost_price`, `selling_price`, `category`)
+            VALUES 
+                ("Mayo","0.20","0.40","Saus"),
+                ("Pindasaus","0.20","0.50","Saus"),
+                ("Ketchup","0.30","0.60","Saus"),
+
+                ("Shoarma (Lams)","4.50","6.50","Broodje"),
+                ("Kebab","4.00","7.50","Broodje"),
+                ("Pita Kaas Gezond","3.50","5.00","Broodje"),
+
+                ("AA Drink","1.00","3","drinks"),
+                ("Fanta Orange","2.00","3.50","drinks"),
+                ("Coca-Cola","2.00","3.50","drinks")';
+
+        mysqli_query($this->conn, $sql);
+        print_r(mysqli_info($this->conn));
+    }
     
 }
 
