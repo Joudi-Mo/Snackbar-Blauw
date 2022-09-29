@@ -1,6 +1,8 @@
 <?php
 require 'Database.php';
 require_once '../vendor/autoload.php';
+// How to reset the id counter in the database:
+// ALTER TABLE tablename AUTO_INCREMENT = 1
 
 class DbSeeder
 {
@@ -16,7 +18,6 @@ class DbSeeder
     //Functie om de 'user' table in te vullen met nep data
     public function fillUsers(int $number_of_records, $phoneNumber, $password)
     {
-
         $statement = "INSERT INTO 
                             `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
 
@@ -34,7 +35,6 @@ class DbSeeder
                         '$password',
                         '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
                 )";
-
             } else {
 
                 $statement .= 
@@ -67,7 +67,6 @@ class DbSeeder
         return substr(str_shuffle($characters), 0, $length);
     }
     
-
     //Functie om de 'Products' table in te vullen met data
     public function fillProducts()
     {
@@ -95,5 +94,7 @@ class DbSeeder
 $seeder = new DbSeeder($conn);
 echo $seeder->randomPassword(8);
 echo'<br>';
-// $seeder->fillUsers(1,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
 echo $seeder->randomPhoneNumber();
+echo'<br>';
+// $seeder->fillUsers(3,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
+// echo $seeder->fillProducts();

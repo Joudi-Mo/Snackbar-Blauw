@@ -5,14 +5,30 @@
     background-color: #E5E7E9;
     /* color: #fff; */
 }
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
 .registerClass{
     color: #fff;
     background-color: #154360;
-    padding: 40px;
-    border-radius: 20px;
+    background-image: url(../assets/Cafeteria.jpg);
+    background-size: cover;
+    border-radius:20px 0 0 20px;
+    padding-top: 9px;
+    /* display: inline; */
 }
+.registerClass2{
+    color: #fff;
+    background-color: #154360;
+    border-radius:0 20px 20px 0;
+    padding-top: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .registerClass > form{
-    padding: 10px;
+    padding: 5px;
 }
 #button1{
     background-color: #F7DC6F;
