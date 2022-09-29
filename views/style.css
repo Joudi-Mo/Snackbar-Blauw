@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #7F8C8D;
+}
+.registerClass{
+    color: #fff;
+    /* background-color: #2980B9; */
+    background-color: #154360;
+    /* width: 25%; */
+    padding: 40px;
+    border-radius: 20px;
+}
+.registerClass > form{
+    padding: 10px;
+    /* width: 25%; */
+}
+#button1{
+    background-color: #F7DC6F;
+}
+#button2{
+    background-color: #58D68D;
+}

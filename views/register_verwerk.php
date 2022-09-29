@@ -1,34 +1,34 @@
 <?php
-require '../database.php';
+require '../Classes/Database.php';
 
-$voornaam = $_POST["voornaam"];
-$achternaam = $_POST["achternaam"];
+$firstname = $_POST["firstname"];
+$lastname = $_POST["lastname"];
+$pnumber = $_POST["pnumber"];
 $email = $_POST["email"];
-$wachtwoord = $_POST["wachtwoord"];
-$telefoonnummer = $_POST["tnummer"];
-$geboortedatum = htmlentities($_POST['gdatum']);
-$date = date('Y-m-d', strtotime($geboortedatum));
-$rol = $_POST["rol"];
+$pass = $_POST["pass"];
+$role = $_POST["role"];
 $submit = $_POST["submit"];
 
 
 if (
     isset($submit)
-    && !empty($voornaam)
-    && !empty($achternaam)
+    && !empty($firstname)
+    && !empty($lastname)
+    && !empty($pnumber)
     && !empty($email)
-    && !empty($wachtwoord)
-    && !empty($telefoonnummer)
-    && !empty($geboortedatum)
-    && !empty($rol)
+    && !empty($pass)
+    && !empty($role)
 ) {
+    // K-422-HZ
 
-    $sql = "INSERT INTO gebruikers (voornaam, achternaam, email, wachtwoord, geboortedatum, telefoonnummer, rol)
- VALUES ('$voornaam', '$achternaam', '$email', '$wachtwoord', '$date', '$telefoonnummer', '$rol')";
+    $sql = "INSERT INTO `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
+     VALUES ('$firstname','$lastname','$pnumber','$email','$pass','$role')";
 
     // Voer de "INSERT INTO" STATEMENT uit
     mysqli_query($conn, $sql);
-
     mysqli_close($conn); // Sluit de database verbinding
-    header("location: ../home_personeel.php");
+    header("location: login.php");
+}
+else{
+    echo 'Er is iets fout gegaan';
 }

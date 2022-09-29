@@ -81,7 +81,7 @@ if (isset($_POST['submit']) && !empty($_POST["gnaam"]) && !empty($_POST["ww"])) 
                     </div>
 
                     <button class="w-100 btn btn-lg btn-primary mt-4" type="submit" name="submit">Log in</button>
-                    <p class="m-3">Geen account? <a href="register.php">Registreer je je nu!</a></p>
+                    <p class="m-3">New? <a href="register.php">Sign in!</a></p>
 
                     <p class="mt-5 mb-3 text-muted">&copy; <?php echo date("Y") ?></p>
                 </form>
