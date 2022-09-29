@@ -12,22 +12,22 @@ $_SESSION["rol"] = null;
 $username = $password = $login_err = "";
 require_once "../Classes/Database.php";
 
-if (isset($_POST['submit']) && !empty($_POST["firstname"]) && !empty($_POST["pass"])) {
-    $firstname = trim($_POST["firstname"]);
+if (isset($_POST['submit']) && !empty($_POST["email"]) && !empty($_POST["pass"])) {
+    $email = trim($_POST["email"]);
     $password = trim($_POST["pass"]);
 
-    $sql = "SELECT id, firstname, password, role FROM `user` where firstname = '$firstname'";
+    $sql = "SELECT id, firstname, password, email, role FROM `user` where email = '$email'";
     if ($result = mysqli_query($conn, $sql)) {
 
         $data = mysqli_fetch_assoc($result);
     }
 
-    if ($firstname == $data['firstname'] && $password == $data['password']) {
+    if ($email == $data['email'] && $password == $data['password']) {
 
         // Store data in session variables
         $_SESSION["is_logged_in"] = true;
         $_SESSION["id"] = $data['id'];
-        $_SESSION["username"] = $firstname;
+        $_SESSION["username"] = $data['firstname'];
         $_SESSION["role"] = $data['rol'];
         if ($data['role'] == 'gebruiker') {
             // header("location: meldingen/melding_maak.php");
@@ -60,7 +60,7 @@ if (isset($_POST['submit']) && !empty($_POST["firstname"]) && !empty($_POST["pas
 
 <body id="body" class="text-center">
     <div class="container px-5 py-5">
-        <div class="col px-5 py-5">
+        <div class="px-5">
             <main class="form-signin row justify-content-center">
                 <form action="login.php" method="POST" class="col-4">
                     <img class="mb-4" src="../assets/burger.png" width="150" height="150">
@@ -74,7 +74,7 @@ if (isset($_POST['submit']) && !empty($_POST["firstname"]) && !empty($_POST["pas
                     </p>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="user" name="firstname">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="user" name="email">
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mt-4">
@@ -83,9 +83,9 @@ if (isset($_POST['submit']) && !empty($_POST["firstname"]) && !empty($_POST["pas
                     </div>
 
                     <button class="w-100 btn btn-lg btn-primary mt-4" type="submit" name="submit">Log in</button>
-                    <p class="m-3">New? <a href="register.php">Sign up!</a></p>
+                    <p class="mt-3">New? <a href="register.php">Sign up!</a></p>
 
-                    <p class="mt-5 mb-3 text-muted">&copy; <?php echo date("Y") ?></p>
+                    <p class="text-muted">&copy; <?php echo date("Y") ?></p>
                 </form>
             </main>
         </div>

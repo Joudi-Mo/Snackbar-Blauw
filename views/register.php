@@ -1,11 +1,11 @@
 <?php
 session_start();
 // if (!$_SESSION['is_logged_in']) {
-//     header("location: ../login.php");
+//     header("location: login.php");
 // }
 
-// require '../database.php';
-// $sql = "SELECT * FROM gebruikers";
+// require_once "../Classes/Database.php";
+// $sql = "SELECT * FROM user";
 // $result = mysqli_query($conn, $sql);
 // $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
