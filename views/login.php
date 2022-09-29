@@ -12,27 +12,29 @@ $_SESSION["rol"] = null;
 $username = $password = $login_err = "";
 require_once "../Classes/Database.php";
 
-if (isset($_POST['submit']) && !empty($_POST["gnaam"]) && !empty($_POST["ww"])) {
-    $username = trim($_POST["gnaam"]);
-    $password = trim($_POST["ww"]);
+if (isset($_POST['submit']) && !empty($_POST["firstname"]) && !empty($_POST["pass"])) {
+    $firstname = trim($_POST["firstname"]);
+    $password = trim($_POST["pass"]);
 
-    $sql = "SELECT id, voornaam, wachtwoord, rol FROM `gebruikers` where voornaam = '$username'";
+    $sql = "SELECT id, firstname, password, role FROM `user` where firstname = '$firstname'";
     if ($result = mysqli_query($conn, $sql)) {
 
         $data = mysqli_fetch_assoc($result);
     }
 
-    if ($username == $data['voornaam'] && $password == $data['wachtwoord']) {
+    if ($firstname == $data['firstname'] && $password == $data['password']) {
 
         // Store data in session variables
         $_SESSION["is_logged_in"] = true;
         $_SESSION["id"] = $data['id'];
-        $_SESSION["username"] = $username;
-        $_SESSION["rol"] = $data['rol'];
-        if ($data['rol'] == 'gebruiker') {
-            header("location: meldingen/melding_maak.php");
+        $_SESSION["username"] = $firstname;
+        $_SESSION["role"] = $data['rol'];
+        if ($data['role'] == 'gebruiker') {
+            // header("location: meldingen/melding_maak.php");
+        } elseif($data['role'] == 'medewerker') {
+            // header("location: home_medewerker.php");
         } else {
-            header("location: home_personeel.php");
+            // header("location: home_manager.php");
         }
     }
 
@@ -50,15 +52,15 @@ if (isset($_POST['submit']) && !empty($_POST["gnaam"]) && !empty($_POST["ww"])) 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <title>Inloggen</title>
+    <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body class="text-center">
+<body id="body" class="text-center">
     <div class="container px-5 py-5">
         <div class="col px-5 py-5">
-
             <main class="form-signin row justify-content-center">
                 <form action="login.php" method="POST" class="col-4">
                     <img class="mb-4" src="../assets/burger.png" width="150" height="150">
@@ -72,16 +74,16 @@ if (isset($_POST['submit']) && !empty($_POST["gnaam"]) && !empty($_POST["ww"])) 
                     </p>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="user" name="gnaam">
-                        <label for="floatingInput">Gebruikersnaam</label>
+                        <input type="text" class="form-control" id="floatingInput" placeholder="user" name="firstname">
+                        <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mt-4">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="ww">
-                        <label for="floatingPassword">Wachtwoord</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
+                        <label for="floatingPassword">Password</label>
                     </div>
 
                     <button class="w-100 btn btn-lg btn-primary mt-4" type="submit" name="submit">Log in</button>
-                    <p class="m-3">New? <a href="register.php">Sign in!</a></p>
+                    <p class="m-3">New? <a href="register.php">Sign up!</a></p>
 
                     <p class="mt-5 mb-3 text-muted">&copy; <?php echo date("Y") ?></p>
                 </form>
