@@ -3,6 +3,7 @@
 #body{
     font-family: 'Roboto', sans-serif;
     background-color: #E5E7E9;
+    /* background-color: red; */
     /* color: #fff; */
 }
 .flex-container{
@@ -37,6 +38,14 @@
 #button2{
     background-color: #58D68D;
 }
-/* input[type=text]{
-    background-color: #E5E7E9;
-} */
+
+/* Onderstaande class krijgt de style niet. Test het. */
+.updateForm{
+    background-color: red;
+    color: #fff;
+    background-color: #154360;
+    border-radius:20px 0 0 20px;
+    padding-top: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+}

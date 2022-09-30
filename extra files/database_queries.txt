@@ -34,3 +34,7 @@ INSERT INTO `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, 
 VALUES      ("Peter","Van Dijk","987654321","peter@test.com","123","Klant"),
             ("Jan","Van de Beek","123456789","jan@test.com","123","Medewerker"),
             ("Mark","Goot","0101010101","Mark@test.com","123","Manager")
+
+
+How to reset the id counter in the database:
+ALTER TABLE tablename AUTO_INCREMENT = 1
