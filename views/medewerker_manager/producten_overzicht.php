@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
 </head>
 <body id="body">
-<div class="container mt-3">
+<div class="">
         <?php
         require "../Classes/Database.php";
 
@@ -29,10 +29,11 @@
             $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
         ?>
-        <div class="container m-3">
+        <div class="">
             <table class="table table-responsive table-striped">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Cost Price</th>
@@ -45,6 +46,7 @@
                     //var_dump($users); die;
                     foreach ($producten as $product) : ?>
                         <tr>
+                            <td></td>
                             <td><?php echo $product["product_id"] ?></td>
                             <td><?php echo $product["name"] ?></td>
                             <td><?php echo $product["cost_price"] ?></td>

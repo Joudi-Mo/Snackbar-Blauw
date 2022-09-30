@@ -11,24 +11,25 @@
 }
 .registerClass{
     color: #fff;
-    background-color: #154360;
+    /* background-color: #154360; */
     background-image: url(../assets/Cafeteria.jpg);
     background-size: cover;
-    border-radius:20px 0 0 20px;
+    border-radius:0 20px 20px 0;
     padding-top: 9px;
     /* display: inline; */
 }
 .registerClass2{
     color: #fff;
     background-color: #154360;
-    border-radius:0 20px 20px 0;
+    border-radius:20px 0 0 20px;
     padding-top: 9px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.registerClass > form{
+.registerClass2 > form{
     padding: 5px;
+    /* width: 70%; */
 }
 #button1{
     background-color: #F7DC6F;
@@ -36,3 +37,6 @@
 #button2{
     background-color: #58D68D;
 }
+/* input[type=text]{
+    background-color: #E5E7E9;
+} */
