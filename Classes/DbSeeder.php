@@ -97,4 +97,4 @@ echo'<br>';
 echo $seeder->randomPhoneNumber();
 echo'<br>';
 // $seeder->fillUsers(3,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
-// echo $seeder->fillProducts();
+echo $seeder->fillProducts();
