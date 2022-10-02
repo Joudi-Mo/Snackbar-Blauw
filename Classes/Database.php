@@ -1,3 +1,6 @@
+<head>
+    <title>Database.php</title>
+</head>
 <?php
 class Database
 {
