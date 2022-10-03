@@ -19,7 +19,7 @@ class DbSeeder
     }
 
     //Functie om de 'user' table in te vullen met nep data
-    public function fillUsers(int $number_of_records, $phoneNumber, $password)
+    public function fillUsers(int $number_of_records)
     {
         $statement = "INSERT INTO 
                             `user`(`firstname`, `lastname`, `phonenumber`, `email`, `password`, `role`)
@@ -28,15 +28,14 @@ class DbSeeder
 
         for ($i = 0; $i < $number_of_records; $i++) {
             if ($i == $number_of_records - 1) {
-
                 $statement .= 
                 "(
-                        '{$this->faker->firstName()}',
-                        '{$this->faker->lastName()}',
-                        '$phoneNumber',
-                        '{$this->faker->safeEmail()}',
-                        '$password',
-                        '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
+                    '{$this->faker->firstName()}',
+                    '{$this->faker->lastName()}',
+                    '{$this->randomPhoneNumber()}',
+                    '{$this->faker->safeEmail()}',
+                    '{$this->randomPassword(8)}',
+                    '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
                 )";
             } else {
 
@@ -44,9 +43,9 @@ class DbSeeder
                 "(
                     '{$this->faker->firstName()}',
                     '{$this->faker->lastName()}',
-                    '$phoneNumber',
+                    '{$this->randomPhoneNumber()}',
                     '{$this->faker->safeEmail()}',
-                    '$password',
+                    '{$this->randomPassword(8)}',
                     '{$this->faker->randomElement(['Klant', 'Medewerker', 'Manager'])}'
                 ),"; 
             }
@@ -64,6 +63,7 @@ class DbSeeder
         }
         return $sequence;
     }
+    
     //Een random password genereren
     public function randomPassword($length){
         $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#&";
@@ -99,5 +99,5 @@ echo $seeder->randomPassword(8);
 echo'<br>';
 echo $seeder->randomPhoneNumber();
 echo'<br>';
-// $seeder->fillUsers(3,$seeder->randomPhoneNumber(), $seeder->randomPassword(8));
+$seeder->fillUsers(3);
 echo $seeder->fillProducts();

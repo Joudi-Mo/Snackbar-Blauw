@@ -9,6 +9,9 @@
     <?php include '../head.php'; ?>
 </head>
 <body id="body">
+    <?php 
+    include 'medewerker_header.php';
+    ?>
 <div class="">
         <?php
         require "../../Classes/Database.php";
@@ -39,7 +42,7 @@
                         <tr>
                             <td></td>
                             <td><?php echo $product["product_id"] ?></td>
-                            <td><a href="../product.php"><?php echo $product["name"] ?></a></td>
+                            <td><a href="../product.php?id=<?php echo $product["product_id"] ?>"><?php echo $product["name"] ?></a></td>
                             <td><?php echo $product["cost_price"] ?></td>
                             <td><?php echo $product["selling_price"] ?></td>
                             <td><?php echo $product["category"] ?></td>

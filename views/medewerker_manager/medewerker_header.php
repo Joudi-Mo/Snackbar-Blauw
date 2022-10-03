@@ -1,23 +1,23 @@
 <?php
-require 'database.php';
-session_start();
-if (!$_SESSION['is_logged_in']) {
-    header("location: login.php");
-}
+// require '../../Classes/Database.php';
+// session_start();
+// if (!$_SESSION['is_logged_in']) {
+//     header("location: login.php");
+// }
 ?>
 
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="http://localhost/project-mms/home_personeel.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img src="http://localhost/project-mms/assets/telephone.png" alt="LOGO" width="30px" height="30px">
-            <h1 class="fs-4 fw-bold mx-3">MMS</h1>
+        <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <img src="../../assets/burger.png" alt="LOGO" width="30px" height="30px">
+            <h1 class="fs-4 fw-bold mx-3">Snackbar Blauw</h1>
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="http://localhost/project-mms/home_personeel.php" class="nav-link text-dark">Gebruikers/Personeels</a></li>
-            <li class="nav-item"><a href="http://localhost/project-mms/meldingen/melding_overzicht.php" class="nav-link text-dark">Meldinging</a></li>
-            <li class="nav-item"><a href="http://localhost/project-mms/categorieen/categorie_overzicht.php" class="nav-link text-dark">Categorieen</a></li>
-            <li class="nav-item"><a href="http://localhost/project-mms/login.php" class="btn btn-danger">Log out</a></li>
+            <li class="nav-item"><a href="" class="nav-link text-dark">Gebruikers/Personeels</a></li>
+            <li class="nav-item"><a href="" class="nav-link text-dark">Producten</a></li>
+            <li class="nav-item"><a href="" class="nav-link text-dark">Categorieen</a></li>
+            <li class="nav-item"><a href="../login.php" class="btn btn-danger">Log out</a></li>
         </ul>
     </header>
 </div>

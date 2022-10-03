@@ -1,19 +1,19 @@
 <?php
-require "../Classes/Database.php";
+// require "../Classes/Database.php";
 
-$sql = "SELECT * FROM `products`";
+// $sql = "SELECT * FROM `products`";
 
-if ($result = mysqli_query($conn, $sql)) {
+// if ($result = mysqli_query($conn, $sql)) {
 
-    $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}
-?>
+//     $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// }
+// ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>product</title>
-    <?php include 'head.php' ?>
+    <title><?php ?>product</title>
+    <?php include 'head.php'; ?>
 </head>
 
 <body>
