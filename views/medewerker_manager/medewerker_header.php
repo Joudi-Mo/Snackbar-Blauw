@@ -14,12 +14,12 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="" class="nav-link text-dark">Gebruikers/Personeels</a></li>
-            <li class="nav-item"><a href="" class="nav-link text-dark">Producten</a></li>
-            <li class="nav-item"><a href="" class="nav-link text-dark">Categorieen</a></li>
+            <li class="nav-item"><a href="dashboard.php" class="nav-link text-dark">Dashboard</a></li>
+            <li class="nav-item"><a href="producten_overzicht.php" class="nav-link text-dark">Producten</a></li>
+            <!-- <li class="nav-item"><a href="" class="nav-link text-dark">Categorieen</a></li> -->
             <li class="nav-item"><a href="../login.php" class="btn btn-danger">Log out</a></li>
         </ul>
     </header>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> -->

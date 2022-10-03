@@ -4,15 +4,20 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Producten</title>
     <?php include '../head.php'; ?>
 </head>
+
 <body id="body">
-    <?php 
+    <?php
     include 'medewerker_header.php';
     ?>
-<div class="">
+    <div class="container">
+        <a class="btn btn-primary" href="product_maak.php">Add product</a>
+    </div>
+    <div class="">
         <?php
         require "../../Classes/Database.php";
 
@@ -55,4 +60,5 @@
         </div>
     </div>
 </body>
+
 </html>
