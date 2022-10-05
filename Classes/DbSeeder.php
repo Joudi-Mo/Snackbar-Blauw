@@ -74,19 +74,20 @@ class DbSeeder
     public function fillProducts()
     {
         $sql ='INSERT INTO 
-                `products`(`name`, `cost_price`, `selling_price`, `category`, `image`)
+                `products`(`name`, `cost_price`, `selling_price`, `category`, `quantity`, `image`)
             VALUES 
-                ("Mayo","0.20","0.40","Saus","mayo"),
-                ("Pindasaus","0.20","0.50","Saus", "pindasaus"),
-                ("Ketchup","0.30","0.60","Saus", "ketchup"),
+                ("Mayo","0.20","0.40","Saus", "35","mayo"),
+                ("Pindasaus","0.20","0.50","Saus", "35", "pindasaus"),
+                ("Ketchup","0.30","0.60","Saus", "35", "ketchup"),
 
-                ("Shoarma (Lams)","4.50","6.50","Broodje", "shoarma"),
-                ("Kebab","4.00","7.50","Broodje", "kebab"),
-                ("Pita Kaas Gezond","3.50","5.00","Broodje", "kaas gezond"),
+                ("Shoarma (Lams)","4.50","6.50","Broodje", "35", "shoarma"),
+                ("Kebab","4.00","7.50","Broodje", "35", "kebab"),
+                ("Pita Kaas Gezond","3.50","5.00","Broodje", "35", "kaas gezond"),
 
-                ("AA Drink","1.00","3","drinks", "aa-drink"),
-                ("Fanta Orange","2.00","3.50","drinks", "fanta orange"),
-                ("Coca-Cola","2.00","3.50","drinks", "coco cola")';
+                ("AA Drink","1.00","3","drinks", "35", "aa-drink"),
+                ("Fanta Orange","2.00","3.50","drinks", "35", "fanta orange"),
+                ("Coca-Cola","2.00","3.50","drinks", "35", "coco cola")
+                ';
 
         mysqli_query($this->conn, $sql);
         print_r(mysqli_info($this->conn));

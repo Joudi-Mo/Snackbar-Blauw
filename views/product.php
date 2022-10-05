@@ -1,13 +1,14 @@
 <?php
-// require "../Classes/Database.php";
+require "../Classes/Database.php";
+$id = $_GET['id'];
+var_dump($_GET);die;
+$sql = "SELECT * FROM `products` where product_id = $id";
 
-// $sql = "SELECT * FROM `products`";
+if ($result = mysqli_query($conn, $sql)) {
 
-// if ($result = mysqli_query($conn, $sql)) {
-
-//     $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// }
-// ?>
+    $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@
     <div class="canvas container">
         <div class="column1">
             <div class="img">
-                <img src="../assets/<?php ?>.jpg" alt="product image">
+                <img src="../assets/<?php echo $producten["image"]?>.jpg" alt="product image">
             </div>
         </div>
         <div class="column2">
