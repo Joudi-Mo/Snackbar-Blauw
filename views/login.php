@@ -50,11 +50,12 @@ if (isset($_POST['submit']) && !empty($_POST["email"]) && !empty($_POST["pass"])
 <head>
     <title>Inloggen</title>
     <?php include 'head.php'; ?>
+    <link rel="stylesheet" href="style.css">
 
 
 </head>
 
-<body id="body" class="text-center">
+<body class="text-center">
     <div class="container px-5 py-5">
         <div class="px-5">
             <main class="form-signin row justify-content-center">

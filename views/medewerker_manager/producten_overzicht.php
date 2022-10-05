@@ -8,9 +8,10 @@
 <head>
     <title>Producten</title>
     <?php include '../head.php'; ?>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body id="body">
+<body>
     <?php
     include 'medewerker_header.php';
     ?>
