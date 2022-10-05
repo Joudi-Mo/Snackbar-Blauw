@@ -47,6 +47,11 @@
                 <option value="drinks">Drinks</option>
             </select>
 
+            <div class="mb-3">
+                <label class="form-label" for="quantity">Quantity:</label>
+                <input value="<?php echo $product['quantity'] ?>" class="form-control" type="number" name="quantity">
+            </div>
+
             <button class="btn btn-warning mt-2" name="submit">Update</button>
             <a class="btn btn-primary mt-2" href="producten_overzicht.php">Cancel</a>
         </form>

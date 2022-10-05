@@ -29,25 +29,25 @@
 
             <div class="mb-3">
                 <label class="form-label" for="cost_price">Cost price:</label>
-                <input class="form-control" type="number" name="cost_price">
+                <input class="form-control" type="text" name="cost_price">
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="selling_price">Selling price:</label>
-                <input class="form-control" type="number" name="selling_price">
+                <input class="form-control" type="text" name="selling_price">
             </div>
+
+            <label class="form-label" for="category">Category:</label>
+            <select name="category" class="form-select mb-2" aria-label="Default select example">
+                <option value="saus">Saus</option>
+                <option value="broodje">Broodje</option>
+                <option value="drinks">Drinks</option>
+            </select>
 
             <div class="mb-3">
-                <label class="form-label" for="category">Category:</label>
-                <input class="form-control" type="text" name="category">
+                <label class="form-label" for="quantity">Quantity:</label>
+                <input class="form-control" type="number" name="quantity">
             </div>
-
-            <label class="form-label" for="">Role:</label>
-            <select name="role" class="form-select mb-2" aria-label="Default select example">
-                <option value="Klant">Klant</option>
-                <option value="Medewerker">Medewerker</option>
-                <option value="Manager">Manager</option>
-            </select>
 
             <div class="mb-3">
                 <button class="btn btn-primary mt-2" name="submit">Add product</button>

@@ -8,6 +8,7 @@ if (isset($_POST["submit"])) {
     $cost_price = $_POST["cost_price"];
     $selling_price = $_POST["selling_price"];
     $category = $_POST["category"];
+    $quantity = $_POST["quantity"];
 
     if (
         !empty($name)
@@ -15,22 +16,14 @@ if (isset($_POST["submit"])) {
         && !empty($selling_price)
         && !empty($category)
     ) {
-        //allemaal moeten ze true zijn
-        // $name = $_POST["name"];
-        // $cost_price = $_POST["cost_price"];
-        // $selling_price = $_POST["selling_price"];
-        // $category = $_POST["category"];
-
-        //database connectie
-        // var_dump($_POST);die;
-
         require "../../Classes/Database.php";
 
         $sql = "UPDATE `products` SET 
         `name`='$name',
         `cost_price`='$cost_price',
         `selling_price`='$selling_price',
-        `category`='$category' WHERE product_id ='$id' ";
+        `category`='$category',
+        `quantity`='$quantity' WHERE product_id ='$id' ";
 
         // Voer de INSERT INTO STATEMENT uit
         if (mysqli_query($conn, $sql)) {

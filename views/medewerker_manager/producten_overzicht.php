@@ -38,6 +38,7 @@
                         <th>Cost Price</th>
                         <th>Selling Price</th>
                         <th>Category</th>
+                        <th>Quantity</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -51,6 +52,7 @@
                             <td><?php echo $product["cost_price"] ?></td>
                             <td><?php echo $product["selling_price"] ?></td>
                             <td><?php echo $product["category"] ?></td>
+                            <td><?php echo $product["quantity"] ?></td>
                             <td><a href="product_delete.php?id=<?php echo $product["product_id"] ?>"><i class="fa-solid fa-trash text-danger"></i></a> </td>
                             <td><a class="btn btn-warning" href="product_update.php?id=<?php echo $product["product_id"] ?>">Update</a></td>
                         </tr>
