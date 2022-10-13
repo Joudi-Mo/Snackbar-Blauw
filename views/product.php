@@ -23,27 +23,22 @@ if ($result = mysqli_query($conn, $sql)) {
     <?php
     // include 'medewerker_manager/medewerker_header.php'
     ?>
-    <!-- <a href="" class="btn btn-primary">Hello</a> -->
-
-    <div class="canvas container">
-        <div class="column1">
-            <div class="product-beschrijving">
-                <span>Product: <?php echo $product["name"] ?></span><br>
-                <span>Price: <?php echo $product["selling_price"] ?></span><br>
-                <span>Category: <?php echo ucfirst($product["category"]) ?></span>
+    <main class="container m-5">
+        <div class="col-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static" style="background-color: #3498DB;">
+                    <strong class="d-inline-block mb-2 text-light"><?php echo ucfirst($product["category"]) ?></strong>
+                    <h3 class="fw-bold mb-0"> <?php echo $product["name"] ?></h3>
+                    <div class="mb-1 text-light">Price: € <?php echo $product["selling_price"] ?></div>
+                    <div class="mb-1 text-light">Quanitity: <?php echo ucfirst($product["quantity"]) ?></div>
+                    <p class="card-text mb-auto">Dit is heel erg lekker.</p>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="../assets/<?php echo $product["image"] ?>.jpg" alt="product image" width="400px" height="400px">
+                </div>
             </div>
         </div>
-        <div class="column2">
-            <div class="img">
-                <img src="../assets/<?php echo $product["image"] ?>.jpg" alt="product image" width="200px" height="200px">
-                <!-- <img src="../assets/mayo.jpg" alt="product image" width="100px" height="100px"> -->
-            </div>
-        </div>
-    </div>
-
-    <div class="container text-center">
-
-    </div>
+    </main>
 
 </body>
 

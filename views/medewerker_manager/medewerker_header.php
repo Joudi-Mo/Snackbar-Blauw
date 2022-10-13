@@ -10,7 +10,7 @@
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom border-dark">
         <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img src="../../assets/burger.png" alt="LOGO" width="30px" height="30px">
-            <h1 class="fs-4 fw-bold mx-3">Snackbar Blauw</h1>
+            <h1 class="fs-4 fw-bold mx-3">Snackbar <span class="text-primary">Blauw</span></h1>
         </a>
 
         <ul class="nav nav-pills">

@@ -16,7 +16,7 @@ if (isset($_POST['submit']) && !empty($_POST["email"]) && !empty($_POST["pass"])
     $email = trim($_POST["email"]);
     $password = trim($_POST["pass"]);
 
-    $sql = "SELECT id, firstname, password, email, role FROM `user` where email = '$email'";
+    $sql = "SELECT id, firstname, password, email, role FROM `users` where email = '$email'";
     if ($result = mysqli_query($conn, $sql)) {
 
         $data = mysqli_fetch_assoc($result);
@@ -48,10 +48,9 @@ if (isset($_POST['submit']) && !empty($_POST["email"]) && !empty($_POST["pass"])
 <html lang="en">
 
 <head>
-    <title>Inloggen</title>
     <?php include 'head.php'; ?>
     <link rel="stylesheet" href="style.css">
-
+    <title>Inloggen</title>
 
 </head>
 

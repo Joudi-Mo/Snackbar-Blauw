@@ -15,6 +15,7 @@
 <head>
     <title>Add product</title>
     <?php include '../head.php'; ?>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
